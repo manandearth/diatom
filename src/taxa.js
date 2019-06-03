@@ -1,5 +1,5 @@
 
-const Data =[
+const Data = [
 	{name: "Centric", generas: [
 		{name: "Acanthoceras"},
 		{name: "Actinocyclus"},
