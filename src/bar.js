@@ -6,38 +6,28 @@ import Taxa from './taxa.js'
 class Rectangles extends React.Component {
    
     constructor (props){
-        
         super(props)
         // this.rectangle = this.rectangle.bind(this) 
     }
-
+  
     drawRectangle(props, i) {
         const data = this.props.data
-        return (<rect
+        return (<g><rect
                   x={100}
                   y={310}
                   width={100}
                   height={100}
                   fill={this.props.color}
-                  transform={"rotate(" + i * 360 / this.props.data.length + ",360 ,360)"}>
-                </rect>)
+                  transform={"rotate(" + i * 360 / this.props.data.length + ",360 ,360)"}
+                  /* onMouseEnter={this._handleHighlight.bind(this, d)} */
+                  /* onMouseLeave={this._handleHighlight.bind(this, null)} */
+                >
+                   </rect>
+                  <text 
+                    x={100}
+                    y={310}
+                    transform={"rotate(" + i * 360 / this.props.data.length + ",360 ,360)"}>{props.name}</text></g>)
     }
-
-    // rectangle(props) {
-    //     const rotateString = "rotate(" + 360 + 360 + 100 + ")"
-    //     const rect = d3.selectAll("rect")
-    //           .data(this.props.data)
-    //           .enter()
-    //           .append("rect")
-    //           .attr("x", 100)
-    //           .attr("y", 310)
-    //           .attr("width", 100)
-    //           .attr("transform", (d, i) => "rotate(" + i * 360 / 9 + ",360,360)")
-    //           .attr("height", 100)
-    //           .attr("fill", this.props.color)
-      
-       
-    //}
 
     render(){
         const w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
