@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import * as d3 from 'd3';
 
 const Viz = (props) => {
-  useEffect(() => {
-   d3.select('.viz > *').remove();
+    useEffect(() => {   
+      d3.select('.viz > *').remove();
    draw(props)
  }, [props, props.shapes.length])
   return <div className="viz" />
