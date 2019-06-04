@@ -63,11 +63,64 @@ const Taxa = [
 	},
 	
 	{name: "Symmetric Biraphid", generas: []},
-	{name: "Monoraphid", generas: []},
-	{name: "Asymmetric Biraphid", generas: []},
-	{name: "Epithemioid", generas: []},
-	{name: "Nitzschioid", generas: []},
-	{name: "Surirelloid", generas: []}
+	{name: "Monoraphid", generas: [
+		{name: "Achnantes"},
+		{name: "Achanthidium"},
+		{name: "Anorthoneis"},
+		{name: "Cocconeis"},
+		{name: "Eucocconeis"},
+		{name: "Gliwiczia"},
+		{name: "Karayevia"},
+		{name: "Lemnicola"},
+		{name: "Planothidium"},
+		{name: "Platessa"},
+		{name: "Psammothidium"},
+		{name: "Rossithidium"},]
+	},
+	{name: "Asymmetric Biraphid", generas: [
+		{name: "Afrocymbella"},
+		{name: "Amphora"},
+		{name: "Brebissonia"},
+		{name: "Cymbella"},
+		{name: "Cymbopleura"},
+		{name: "Delicata"},
+		{name: "Didymosphenia"},
+		{name: "Encyonema"},
+		{name: "Encyonopsis"},
+		{name: "Gomphoneis"},
+		{name: "Gomphonema"},
+		{name: "Gomphosinica"},
+		{name: "Gomphosphenia"},
+		{name: "Halamphora"},
+		{name: "Kurtkrammeria"},
+		{name: "Navicymbula"},
+		{name: "Oricymba"},
+		{name: "Reimeria"},
+		{name: "Rhoicosphenia"},]
+	},
+	{name: "Epithemioid", generas: [
+		{name: "Epithemia"},
+		{name: "Rhopalodia"}]
+	},
+	{name: "Nitzschioid", generas: [
+		{name: "Bacillaria"},
+		{name: "Cylindrotheca"},
+		{name: "Cymbellonitzschia"},
+		{name: "Denticula"},
+		{name: "Grunowia"},
+		{name: "Hantzschia"},
+		{name: "Nitzchia"},
+		{name: "Psammodictyon"},
+		{name: "Simonsenia"},
+		{name: "Tryblionella"}
+	]},
+	{name: "Surirelloid", generas: [
+		{name: "Campylodiscus"},
+		{name: "Cymatopleura"},
+		{name: "Entomoneis"},
+		{name: "Stenopterobia"},
+		{name: "Surirella"}]
+	}
 ]
 
 export default Taxa;

@@ -60,7 +60,7 @@ class App extends React.Component {
               <Navbar />
               <h1>Diatom</h1>
               <h2>A morphology by calcium and silica</h2>
-              <VisExampleApp />
+              {/* <VisExampleApp /> */}
               <Rectangles
                  data={this.state.data}
                 color={this.state.color}

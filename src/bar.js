@@ -12,6 +12,7 @@ class Rectangles extends React.Component {
     }
   
     drawRectangle(props, i) {
+
         const data = this.props.data
         return (<g><rect
                      id={this.props.data[i].name}
@@ -33,22 +34,31 @@ class Rectangles extends React.Component {
 
     drawGeneraRectangle(props, i, len) {
         const data = this.props.data
+        var sizeLinear = d3.scaleLinear()
+            .domain([2, 59])  
+            .range([0.9, 0.7]);
+        var offsetLinear = d3.scaleLinear()
+            .domain([2, 59])
+            .range([20, 10]);
+        let transformation = "rotate(" + i * 360 / len + ",360 ,360), translate (" + 3 * len + "," + 10 * len + ")"
+        let xOffset = offsetLinear(len)
+        let yOffset = offsetLinear(len)
         return (<g><rect
-                     
+                     id={props.name}
                      className="genera"
-                     x={20}
-                     y={330}
-                     width={80}
-                     height={80}
-                     transform={"rotate(" + i * 360 / len + ",360 ,360)"}
+                     x={ xOffset }
+                     y={ yOffset }
+                     width={ xOffset }
+                     height={ yOffset }
+                     transform={ transformation }
                      onClick={this.handleChangeCategory}
-                     fill="yellowgreen"
+                     fill="yellow"
                    />
                   <text
                     className="small"
-                    x={20}
-                    y={330}
-                    transform={"rotate(" + i * 360 / len  + ",360,360)"}>{props.name}</text>
+                    x={ xOffset }
+                    y={ yOffset }
+                    transform={ transformation }>{props.name}</text>
                 </g>);
     }
 
@@ -69,16 +79,11 @@ class Rectangles extends React.Component {
         return<div>
           <svg width={w} height={h}>
             {this.props.data.map((category, i) =>this.drawRectangle(category, i))}
-             <g>
+            <g transform="translate(120,150)">
                {selected ? selected.map((category) => category.generas.map((genera, i) => this.drawGeneraRectangle(genera, i, generaOfSelected[0].length))) : null}
                 </g>
           </svg>
-          <h2>
-            {this.props.data.map((category) => category.generas.map((genera) => genera.name))}</h2>
-               
-                <h2>
-                  {}
-                </h2>
+          
          </div>
     }    
 }

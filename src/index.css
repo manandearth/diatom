@@ -55,6 +55,18 @@ code {
     cursor: pointer;
 }
 
+.genera {
+    rx: 200px;
+    ry: 5px;
+    
+}
+
+.genera:hover {
+    fill: green;
+    rx: 200px;
+    ry: 25px;
+
+}
 .small {
     font: italic 13px sans-serif;
 }
