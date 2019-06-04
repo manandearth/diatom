@@ -7,28 +7,31 @@ class Rectangles extends React.Component {
    
     constructor (props){
         super(props)
-        // this.rectangle = this.rectangle.bind(this) 
+        this.handleChangeCategory = this.handleChangeCategory.bind(this)
     }
   
     drawRectangle(props, i) {
         const data = this.props.data
         return (<g><rect
-                  x={100}
-                  y={310}
-                  width={100}
-                  height={100}
-                  fill={this.props.color}
-                  transform={"rotate(" + i * 360 / this.props.data.length + ",360 ,360)"}
-                  /* onMouseEnter={this._handleHighlight.bind(this, d)} */
-                  /* onMouseLeave={this._handleHighlight.bind(this, null)} */
-                >
-                   </rect>
+            className="category"
+                     x={100}
+                     y={310}
+                     width={100}
+                     height={100}
+                     transform={"rotate(" + i * 360 / this.props.data.length + ",360 ,360)"}
+                     onClick={this.handleChangeCategory}
+                   />
                   <text 
                     x={100}
                     y={310}
-                    transform={"rotate(" + i * 360 / this.props.data.length + ",360 ,360)"}>{props.name}</text></g>)
+                    transform={"rotate(" + i * 360 / this.props.data.length + ",360,360)"}>{props.name}</text></g>)
     }
 
+    handleChangeCategory(props){
+        this.props.onChangeCategory(props.name);
+    }
+    
+    
     render(){
         const w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
         const h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);

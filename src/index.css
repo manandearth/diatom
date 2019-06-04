@@ -39,3 +39,18 @@ code {
   background-color: lightseagreen;
   color: white;
 }
+
+.category {
+    fill: yellowgreen;
+    rx: 200px;
+    ry: 5px;
+   
+}
+
+.category:hover {
+    fill: red;
+    width: 170px;
+    rx: 200px;
+    ry: 25px;
+	   
+}

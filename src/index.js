@@ -44,26 +44,28 @@ class App extends React.Component {
             data: Taxa,
             width: 700,
             height: 500,
-            color: 'green',
+            selectedCategorty: []
             // id: root
         }
+        this.handleChangeCategory = this.handleChangeCategory.bind(this)
 }
 
+    handleChangeCategory(newCategory){
+        this.setState({selectedCategorty: newCategory})
+    }
+    
     render() {
         return (
             <div className="App">
               <Navbar />
               <h1>Diatom</h1>
               <h2>A morphology by calcium and silica</h2>
-              <BarChart
-                data={this.state.data}
-                width={this.state.width}
-                height={this.state.height}
-                color={this.state.color} />
               <VisExampleApp />
               <Rectangles
                  data={this.state.data}
-                color={this.state.color} />
+                color={this.state.color}
+                selectedCategory={this.state.selectedCategory}
+                onChangeCategory={this.handleChangeCategory}/>
       </div>
     );
   }
