@@ -62,9 +62,11 @@ code {
 }
 
 .genera:hover {
-    fill: green;
-    rx: 200px;
-    ry: 25px;
+    fill: #9DC209;
+    width: 100px;
+    rx: 150px;
+    ry: 5px;
+    cursor: pointer;
 
 }
 .small {

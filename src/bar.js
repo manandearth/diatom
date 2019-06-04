@@ -8,7 +8,7 @@ class Rectangles extends React.Component {
     constructor (props){
         super(props)
         this.handleChangeCategory = this.handleChangeCategory.bind(this)
-       
+        this.handleChangeGenera = this.handleChangeGenera.bind(this)  
     }
   
     drawRectangle(props, i) {
@@ -36,26 +36,26 @@ class Rectangles extends React.Component {
         const data = this.props.data
         var sizeLinear = d3.scaleLinear()
             .domain([2, 59])  
-            .range([0.9, 0.7]);
+            .range([80, 0]);
         var offsetLinear = d3.scaleLinear()
-            .domain([2, 59])
-            .range([20, 10]);
-        let transformation = "rotate(" + i * 360 / len + ",360 ,360), translate (" + 3 * len + "," + 10 * len + ")"
+            .domain([59, 5])
+            .range([200, 10]);
+        let transformation = "rotate(" + i * 360 / len + ",360 ,360), translate (" + offsetLinear(len) + "," + offsetLinear(len) + ")"
         let xOffset = offsetLinear(len)
         let yOffset = offsetLinear(len)
         return (<g><rect
                      id={props.name}
                      className="genera"
-                     x={ xOffset }
-                     y={ yOffset }
-                     width={ xOffset }
-                     height={ yOffset }
+                     x={ xOffset  }
+                     y={ yOffset  }
+                     width={ sizeLinear(len) }
+                     height={ sizeLinear(len) }
                      transform={ transformation }
-                     onClick={this.handleChangeCategory}
-                     fill="yellow"
+                     onClick={this.handleChangeGenera}
+                     fill={props.name === this.props.selectedGenera ? "#B2C248" : "#9CB071"}
                    />
                   <text
-                    className="small"
+                    className={props.name === this.props.selectedGenera ? "heavy" : "small"}
                     x={ xOffset }
                     y={ yOffset }
                     transform={ transformation }>{props.name}</text>
@@ -66,6 +66,10 @@ class Rectangles extends React.Component {
     
     handleChangeCategory(e){
         this.props.onChangeCategory(e.target.id);
+    }
+
+    handleChangeGenera(e){
+        this.props.onChangeGenera(e.target.id);
     }
 
     

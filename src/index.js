@@ -44,14 +44,20 @@ class App extends React.Component {
             data: Taxa,
             width: 700,
             height: 500,
-            selectedCategory: ""
+            selectedCategory: "",
+            selectedGenera: ""
             // id: root
         }
         this.handleChangeCategory = this.handleChangeCategory.bind(this)
+        this.handleChangeGenera = this.handleChangeGenera.bind(this)
 }
 
     handleChangeCategory(newCategory){
         this.setState({selectedCategory: newCategory})
+    }
+
+    handleChangeGenera(newGenera){
+        this.setState({selectedGenera: newGenera})
     }
     
     render() {
@@ -65,7 +71,9 @@ class App extends React.Component {
                  data={this.state.data}
                 color={this.state.color}
                 selectedCategory={this.state.selectedCategory}
-                onChangeCategory={this.handleChangeCategory}/>
+                onChangeCategory={this.handleChangeCategory}
+                selectedGenera={this.state.selectedGenera}
+                onChangeGenera={this.handleChangeGenera}/>
       </div>
     );
   }
