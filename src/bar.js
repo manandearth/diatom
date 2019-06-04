@@ -8,6 +8,7 @@ class Rectangles extends React.Component {
     constructor (props){
         super(props)
         this.handleChangeCategory = this.handleChangeCategory.bind(this)
+       
     }
   
     drawRectangle(props, i) {
@@ -21,26 +22,65 @@ class Rectangles extends React.Component {
                      height={100}
                      transform={"rotate(" + i * 360 / this.props.data.length + ",360 ,360)"}
                      onClick={this.handleChangeCategory}
+                     fill={this.props.data[i].name === this.props.selectedCategory ? "olive" : "yellowgreen"}
                    />
-                  <text 
+                  <text
+                    className={this.props.data[i].name === this.props.selectedCategory ? "heavy" : "small"}
                     x={100}
                     y={310}
                     transform={"rotate(" + i * 360 / this.props.data.length + ",360,360)"}>{props.name}</text></g>);
     }
 
+    drawGeneraRectangle(props, i, len) {
+        const data = this.props.data
+        return (<g><rect
+                     
+                     className="genera"
+                     x={20}
+                     y={330}
+                     width={80}
+                     height={80}
+                     transform={"rotate(" + i * 360 / len + ",360 ,360)"}
+                     onClick={this.handleChangeCategory}
+                     fill="yellowgreen"
+                   />
+                  <text
+                    className="small"
+                    x={20}
+                    y={330}
+                    transform={"rotate(" + i * 360 / len  + ",360,360)"}>{props.name}</text>
+                </g>);
+    }
+
+
+    
     handleChangeCategory(e){
         this.props.onChangeCategory(e.target.id);
     }
-    
+
     
     render(){
+        var selected = this.props.data.filter((c) => c.name == this.props.selectedCategory)
+        var generaOfSelected = selected ? selected.map((c, i) => c.generas) : null
         const w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
         const h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
         
-        return <svg width={w} height={h}>
-                 {this.props.data.map((category, i) =>this.drawRectangle(category, i))}
-               </svg>   
-    }
+        
+        return<div>
+          <svg width={w} height={h}>
+            {this.props.data.map((category, i) =>this.drawRectangle(category, i))}
+             <g>
+               {selected ? selected.map((category) => category.generas.map((genera, i) => this.drawGeneraRectangle(genera, i, generaOfSelected[0].length))) : null}
+                </g>
+          </svg>
+          <h2>
+            {this.props.data.map((category) => category.generas.map((genera) => genera.name))}</h2>
+               
+                <h2>
+                  {}
+                </h2>
+         </div>
+    }    
 }
 
 class BarChart extends React.Component {

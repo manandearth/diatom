@@ -1,5 +1,5 @@
 
-const Data = [
+const Taxa = [
 	{name: "Centric", generas: [
 		{name: "Acanthoceras"},
 		{name: "Actinocyclus"},
@@ -27,7 +27,7 @@ const Data = [
 		{name: "Thalassiosira"},
 		{name: "Urosolenia"},]
 	},
-	{name: "Araphid", genera: [
+	{name: "Araphid", generas: [
 		{name: "Asterionella"},
 		{name: "Ctenophora"},
 		{name: "Diatoma"},
@@ -53,7 +53,7 @@ const Data = [
 		{name: "Ulnaria"}]
 	},
 	
-	{name: "Eunotioid", genera: [
+	{name: "Eunotioid", generas: [
 		{name: "Actinella"},
 		{name: "Amphicampa"},
 		{name: "Amphorotia"},
@@ -61,11 +61,13 @@ const Data = [
 		{name: "Peronia"},
 		{name: "Semiorbis"}]
 	},
-	{name: "Symmetric Biraphid"},
-	{name: "Monoraphid"},
-	{name: "Asymmetric Biraphid"},
-	{name: "Epithemioid"},
-	{name: "Nitzschioid"},
-	{name: "Surirelloid"}]
+	
+	{name: "Symmetric Biraphid", generas: []},
+	{name: "Monoraphid", generas: []},
+	{name: "Asymmetric Biraphid", generas: []},
+	{name: "Epithemioid", generas: []},
+	{name: "Nitzschioid", generas: []},
+	{name: "Surirelloid", generas: []}
+]
 
-export default Data;
+export default Taxa;

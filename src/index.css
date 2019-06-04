@@ -41,16 +41,25 @@ code {
 }
 
 .category {
-    fill: yellowgreen;
+    /* fill: yellowgreen; */
     rx: 200px;
     ry: 5px;
    
 }
 
 .category:hover {
-    fill: red;
+    fill: olivedrab;
     width: 170px;
     rx: 200px;
     ry: 25px;
     cursor: pointer;
+}
+
+.small {
+    font: italic 13px sans-serif;
+}
+
+
+.heavy {
+    font: bold 20px sans-serif; 
 }

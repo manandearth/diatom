@@ -44,7 +44,7 @@ class App extends React.Component {
             data: Taxa,
             width: 700,
             height: 500,
-            selectedCategory: "Y"
+            selectedCategory: ""
             // id: root
         }
         this.handleChangeCategory = this.handleChangeCategory.bind(this)
@@ -66,7 +66,6 @@ class App extends React.Component {
                 color={this.state.color}
                 selectedCategory={this.state.selectedCategory}
                 onChangeCategory={this.handleChangeCategory}/>
-              <h1>{"the selected category is " + this.state.selectedCategory}</h1>
       </div>
     );
   }
