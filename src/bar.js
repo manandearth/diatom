@@ -13,7 +13,8 @@ class Rectangles extends React.Component {
     drawRectangle(props, i) {
         const data = this.props.data
         return (<g><rect
-            className="category"
+                     id={this.props.data[i].name}
+                     className="category"
                      x={100}
                      y={310}
                      width={100}
@@ -24,11 +25,11 @@ class Rectangles extends React.Component {
                   <text 
                     x={100}
                     y={310}
-                    transform={"rotate(" + i * 360 / this.props.data.length + ",360,360)"}>{props.name}</text></g>)
+                    transform={"rotate(" + i * 360 / this.props.data.length + ",360,360)"}>{props.name}</text></g>);
     }
 
-    handleChangeCategory(props){
-        this.props.onChangeCategory(props.name);
+    handleChangeCategory(e){
+        this.props.onChangeCategory(e.target.id);
     }
     
     
