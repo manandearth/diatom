@@ -49,22 +49,21 @@ code {
 
 .category:hover {
     fill: olivedrab;
-    height: 110px;
     rx: 5px;
-    ry: 60px;
+    ry: 0px;
     cursor: pointer;
 }
 
 .genera {
-    rx: 200px;
-    ry: 5px;
+    rx: 5px;
+    ry: 55px;
     
 }
 
 .genera:hover {
     fill: #338233;
-    rx: 10px;
-    ry: 5px;
+    rx: 5px;
+    ry: 0px;
     cursor: pointer;
 
 }

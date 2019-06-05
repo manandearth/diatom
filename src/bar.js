@@ -14,23 +14,23 @@ class Rectangles extends React.Component {
     drawRectangle(props, i) {
 
         const data = this.props.data
-        return (<svg viewBox="100 -250 200 1000">
+        return (<svg viewBox="100 -350 200 1000">
                    <rect
                      id={this.props.data[i].name}
                      className="category"
-                     x={30}
-                     y={280}
+                     x={50}
+                     y={225}
                      width={100}
                      height={100}
-                     transform={"rotate(" + i * -360 / this.props.data.length + ",100 ,100)"}
+                     transform={"rotate(" + i * 360 / this.props.data.length + ",100 ,100)"}
                      onClick={this.handleChangeCategory}
                      fill={this.props.data[i].name === this.props.selectedCategory ? "olive" : "yellowgreen"}
                    />
-                  <text
+                  <g transform={"rotate(" + i * 360 / this.props.data.length + ",100,100)"}><text
                     className={this.props.data[i].name === this.props.selectedCategory ? "heavy" : "small"}
-                    x={100}
-                    y={310}
-                    transform={"rotate(" + i * -360 / this.props.data.length + ",360,360)"}>{props.name}</text></svg>);
+                    x={50}
+                    y={225}
+                    transform="translate(0,110)">{props.name}</text></g></svg>);
     }
 
     drawGeneraRectangle(props, i, len) {
@@ -38,30 +38,33 @@ class Rectangles extends React.Component {
         var sizeLinear = d3.scaleLinear()
             .domain([2, 59])  
             .range([80, 0]);
-        var offsetLinear = d3.scaleLinear()
-            .domain([59, 5])
+        var yOffsetLinear = d3.scaleLinear()
+            .domain([59, 2])
             .range([200, 10]);
-        let transformation = "rotate(" + -i * 360 / len + ",360 ,360), translate (" + offsetLinear(len) + "," + offsetLinear(len) + ")"
-        let xOffset = offsetLinear(len)
-        let yOffset = offsetLinear(len)
-        return (<g id={"g-" + props.name}
+        var xOffsetLinear = d3.scaleLinear()
+            .domain([59, 2])
+            .range([500, 350]);
+        let transformation = "rotate("  + 360 / len * i + ",100,100)"
+        let xOffset = xOffsetLinear(len)
+        let yOffset = yOffsetLinear(len)
+        return (<svg viewBox="100 -350 200 1000" x="-120" y="-150"  id={"svg-" + props.name}>
                    ><rect
                      id={props.name}
                      className="genera"
-                     /* x={ xOffset  } */
-                     /* y={ yOffset  } */
-                     width={ sizeLinear(len) }
-                     height={ sizeLinear(len) }
+                      x={ xOffset }
+                     y={ yOffset }
+                     width={60}
+                      height={60}
                      transform={ transformation }
                      onClick={this.handleChangeGenera}
                      fill={props.name === this.props.selectedGenera ? "#668613" : "#9CB071"}
                    />
-                  {/* <text */}
-                  {/*   className={props.name === this.props.selectedGenera ? "heavy" : "small"} */}
-                  {/*   x={ xOffset } */}
-                  {/*   y={ yOffset } */}
-                  {/*   transform={ transformation }>{props.name}</text> */}
-                </g>);
+                  <text
+                    className={props.name === this.props.selectedGenera ? "heavy" : "small"}
+                    x={ xOffset }
+                    y={ yOffset }
+                    transform={ transformation }>{props.name}</text>
+                </svg>);
     }
 
 
