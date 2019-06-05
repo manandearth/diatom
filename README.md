@@ -1,6 +1,13 @@
 ## Diatom
 
+
+
 Plakton morpholgy. 
+
+App lives [here](https://manandearth.github.io/diatom/)
+
+Data in collaboration with [Diatoms of North America](https://diatoms.org)
+
 [From Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Diatom):
 Diatoms (diá-tom-os 'cut in half', from diá, 'through' or 'apart'; and the root of tém-n-ō, 'I cut'.) [10] are a major group of algae,[11] specifically microalgae, found in the oceans, waterways and soils of the world. Living diatoms number in the trillions: they generate about 20 percent of the oxygen produced on the planet each year,[12] take in over 6.7 billion metric tons of silicon each year from the waters in which they live,[13] and contribute nearly half of the organic material found in the oceans. The shells of dead diatoms can reach as much as a half mile deep on the ocean floor, and the entire Amazon basin is fertilized annually by 27 million tons of diatom shell dust transported by east-to-west (easterly) transatlantic winds from the bed of a dried up lake[14] once covering much of the African Sahara.[15]Diatoms (diá-tom-os 'cut in half', from diá, 'through' or 'apart'; and the root of tém-n-ō, 'I cut'.) [10] are a major group of algae,[11] specifically microalgae, found in the oceans, waterways and soils of the world. Living diatoms number in the trillions: they generate about 20 percent of the oxygen produced on the planet each year,[12] take in over 6.7 billion metric tons of silicon each year from the waters in which they live,[13] and contribute nearly half of the organic material found in the oceans. The shells of dead diatoms can reach as much as a half mile deep on the ocean floor, and the entire Amazon basin is fertilized annually by 27 million tons of diatom shell dust transported by east-to-west (easterly) transatlantic winds from the bed of a dried up lake once covering much of the African Sahara. Diatoms (diá-tom-os 'cut in half', from diá, 'through' or 'apart'; and the root of tém-n-ō, 'I cut'.) are a major group of algae, specifically microalgae, found in the oceans, waterways and soils of the world. Living diatoms number in the trillions: they generate about 20 percent of the oxygen produced on the planet each year,[12] take in over 6.7 billion metric tons of silicon each year from the waters in which they live, and contribute nearly half of the organic material found in the oceans. The shells of dead diatoms can reach as much as a half mile deep on the ocean floor, and the entire Amazon basin is fertilized annually by 27 million tons of diatom shell dust transported by east-to-west (easterly) transatlantic winds from the bed of a dried up lake once covering much of the African Sahara.
 

@@ -65,7 +65,7 @@ class App extends React.Component {
             <div className="App">
               <Navbar />
               <h1>Diatom</h1>
-              <h2>A morphology by calcium and silica</h2>
+              <h2>A morphology designed in calcium and silica</h2>
               {/* <VisExampleApp /> */}
               <Rectangles
                  data={this.state.data}
