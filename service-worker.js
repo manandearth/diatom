@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/diatom/precache-manifest.ffedc4bc94f132ba9967d923cf8eb191.js"
+  "/diatom/precache-manifest.1f500e4cac62b4dd8e91f4f264f25850.js"
 );
 
 self.addEventListener('message', (event) => {
