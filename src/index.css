@@ -57,6 +57,7 @@ code {
 .genera {
     rx: 5px;
     ry: 55px;
+    overflow: visible;
     
 }
 
@@ -75,3 +76,7 @@ code {
 .heavy {
     font: bold 20px sans-serif; 
 }
+
+svg {
+    overflow: visible;
+    }
