@@ -4,24 +4,25 @@ import Taxa from './taxa.js'
 
 
 class Rectangles extends React.Component {
-   
+    
     constructor (props){
         super(props)
         this.handleChangeCategory = this.handleChangeCategory.bind(this)
-        this.handleChangeGenera = this.handleChangeGenera.bind(this)  
+        this.handleChangeGenera = this.handleChangeGenera.bind(this)
     }
   
     drawRectangle(props, i) {
 
         const data = this.props.data
-        return (<g><rect
+        return (<svg viewBox="100 -250 200 1000">
+                   <rect
                      id={this.props.data[i].name}
                      className="category"
-                     x={100}
-                     y={310}
+                     x={30}
+                     y={280}
                      width={100}
                      height={100}
-                     transform={"rotate(" + i * 360 / this.props.data.length + ",360 ,360)"}
+                     transform={"rotate(" + i * -360 / this.props.data.length + ",100 ,100)"}
                      onClick={this.handleChangeCategory}
                      fill={this.props.data[i].name === this.props.selectedCategory ? "olive" : "yellowgreen"}
                    />
@@ -29,7 +30,7 @@ class Rectangles extends React.Component {
                     className={this.props.data[i].name === this.props.selectedCategory ? "heavy" : "small"}
                     x={100}
                     y={310}
-                    transform={"rotate(" + i * 360 / this.props.data.length + ",360,360)"}>{props.name}</text></g>);
+                    transform={"rotate(" + i * -360 / this.props.data.length + ",360,360)"}>{props.name}</text></svg>);
     }
 
     drawGeneraRectangle(props, i, len) {
@@ -40,25 +41,26 @@ class Rectangles extends React.Component {
         var offsetLinear = d3.scaleLinear()
             .domain([59, 5])
             .range([200, 10]);
-        let transformation = "rotate(" + i * 360 / len + ",360 ,360), translate (" + offsetLinear(len) + "," + offsetLinear(len) + ")"
+        let transformation = "rotate(" + -i * 360 / len + ",360 ,360), translate (" + offsetLinear(len) + "," + offsetLinear(len) + ")"
         let xOffset = offsetLinear(len)
         let yOffset = offsetLinear(len)
-        return (<g><rect
+        return (<g id={"g-" + props.name}
+                   ><rect
                      id={props.name}
                      className="genera"
-                     x={ xOffset  }
-                     y={ yOffset  }
+                     /* x={ xOffset  } */
+                     /* y={ yOffset  } */
                      width={ sizeLinear(len) }
                      height={ sizeLinear(len) }
                      transform={ transformation }
                      onClick={this.handleChangeGenera}
-                     fill={props.name === this.props.selectedGenera ? "#B2C248" : "#9CB071"}
+                     fill={props.name === this.props.selectedGenera ? "#668613" : "#9CB071"}
                    />
-                  <text
-                    className={props.name === this.props.selectedGenera ? "heavy" : "small"}
-                    x={ xOffset }
-                    y={ yOffset }
-                    transform={ transformation }>{props.name}</text>
+                  {/* <text */}
+                  {/*   className={props.name === this.props.selectedGenera ? "heavy" : "small"} */}
+                  {/*   x={ xOffset } */}
+                  {/*   y={ yOffset } */}
+                  {/*   transform={ transformation }>{props.name}</text> */}
                 </g>);
     }
 
@@ -74,14 +76,15 @@ class Rectangles extends React.Component {
 
     
     render(){
+         const w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+        const h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
         var selected = this.props.data.filter((c) => c.name == this.props.selectedCategory)
         var generaOfSelected = selected ? selected.map((c, i) => c.generas) : null
-        const w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-        const h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+       
         
         
         return<div>
-          <svg width={w} height={h}>
+                <svg width={w} height={h}>
             {this.props.data.map((category, i) =>this.drawRectangle(category, i))}
             <g transform="translate(120,150)">
                {selected ? selected.map((category) => category.generas.map((genera, i) => this.drawGeneraRectangle(genera, i, generaOfSelected[0].length))) : null}

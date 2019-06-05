@@ -42,16 +42,16 @@ code {
 
 .category {
     /* fill: yellowgreen; */
-    rx: 200px;
-    ry: 5px;
+    rx: 5px;
+    ry: 55px;
    
 }
 
 .category:hover {
     fill: olivedrab;
-    width: 170px;
-    rx: 200px;
-    ry: 25px;
+    height: 110px;
+    rx: 5px;
+    ry: 60px;
     cursor: pointer;
 }
 
@@ -62,9 +62,8 @@ code {
 }
 
 .genera:hover {
-    fill: #9DC209;
-    width: 100px;
-    rx: 150px;
+    fill: #338233;
+    rx: 10px;
     ry: 5px;
     cursor: pointer;
 
