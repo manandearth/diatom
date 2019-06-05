@@ -52,26 +52,30 @@ class Rectangles extends React.Component {
         let transformation = "rotate("  + 360 / len * i + ",100,100)"
         let xOffset = xOffsetLinear(len)
         let yOffset = yOffsetLinear(len)
-        return (<svg viewBox="100 -350 200 1000" x={-120} y={-150}  id={"svg-" + props.name}>
+        return (<svg viewBox="100 -350 200 1000" x={ -120 } y={ -150 }  id={ "svg-" + props.name }>
                    ><rect
-                     id={props.name}
+                     id={ props.name }
                      className="genera"
                       x={ 60 }
                       y={ 400 }
-                      width={ 60 }
-                      height={ 60 }
-                     transform={"rotate(" + i * -360 / len +  ",100,100)"}
-                     onClick={this.handleChangeGenera}
-                     fill={props.name === this.props.selectedGenera ? "#668613" : "#9CB071"}
+                      width={ this.props.selectedCategory == "Symmetric Biraphid" ? 20 : 60 }
+                      height={ this.props.selectedCategory == "Symmetric Biraphid" ? 20 : 60 }
+                      transform={ this.props.selectedCategory == "Symmetric Biraphid" ?
+                          "rotate(" + i * -360 / len +  ",100,100)" :
+                          "rotate(" + i * -360 / len +  ",100,100)"}
+                     onClick={ this.handleChangeGenera }
+                     fill={ props.name === this.props.selectedGenera ? "#668613" : "#9CB071" }
                     />
-                  <g
-                    transform={"rotate("  + i * -360 / len + ",0,-280),translate(0,50)"}
-                  >
+                  <g transform={ this.props.selectedCategory == "Symmetric Biraphid" ?
+                      "rotate("  + i * -360 / len + ",0,0),translate(0,300)" :
+                      "rotate("  + i * -360 / len + ",0,-280),translate(0,50)" }>
                   <text
-                    className={props.name === this.props.selectedGenera ? "heavy" : "small"}
+                    className={ props.name === this.props.selectedGenera ? "heavy" : "small" }
                     x={ 50 }
-                    y={ 360 }
-                    transform={"rotate("  + i * 360 / len + ",0,0)"}>{props.name}</text></g>
+                    y={ this.props.selectedCategory == "Symmetric Biraphid" ? 110 : 360 }
+                    transform={ this.props.selectedCategory == "Symmetric Biraphid" ?
+                        "rotate("  + i * 360 / len + ",-30,0)" :
+                        "rotate("  + i * 360 / len + ",0,0)" }>{props.name}</text></g>
                 </svg>);
     }
 
