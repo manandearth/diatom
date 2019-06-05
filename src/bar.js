@@ -14,7 +14,9 @@ class Rectangles extends React.Component {
     drawRectangle(props, i) {
 
         const data = this.props.data
-        return (<svg viewBox="100 -350 200 1000">
+        return (
+                  
+            <svg viewBox="100 -350 200 1000">
                    <rect
                      id={this.props.data[i].name}
                      className="category"
@@ -22,15 +24,18 @@ class Rectangles extends React.Component {
                      y={225}
                      width={100}
                      height={100}
-                     transform={"rotate(" + i * 360 / this.props.data.length + ",100 ,100)"}
+                     transform={"rotate(" + i * -360 / this.props.data.length + ",100 ,100)"}
                      onClick={this.handleChangeCategory}
                      fill={this.props.data[i].name === this.props.selectedCategory ? "olive" : "yellowgreen"}
                    />
-                  <g transform={"rotate(" + i * 360 / this.props.data.length + ",100,100)"}><text
-                    className={this.props.data[i].name === this.props.selectedCategory ? "heavy" : "small"}
-                    x={50}
-                    y={225}
-                    transform="translate(0,110)">{props.name}</text></g></svg>);
+              
+              <g transform={"rotate(" + -i * 360 / this.props.data.length + ",0 ,-100), translate(0,120)"}>
+                <text
+                  className={this.props.data[i].name === this.props.selectedCategory ? "heavy" : "small"}
+                  x={50}
+                  y={200}
+                  transform={"rotate(" + i * 360 / this.props.data.length + ",0 ,0)"}
+              >{props.name}</text></g>            </svg>);
     }
 
     drawGeneraRectangle(props, i, len) {
