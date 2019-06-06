@@ -43,23 +43,72 @@ const Taxa = [
 			{name: "gamma"},
 			{name: "quillensis"}]
 		},
-		{name: "Discostella"},
-		{name: "Ellerbeckia"},
-		{name: "Eupodiscus"},
-		{name: "Hydrosera"},
-		{name: "Lindavia"},
-		{name: "Melosira"},
-		{name: "Orthoseira"},
-		{name: "Pleurosira"},
+		{name: "Discostella", species: [
+			{name: "pseudostelligera"},
+			{name: "stelligera"}]
+		},
+		{name: "Ellerbeckia", species: [
+			{name: "arenaria"}]
+		},
+		{name: "Eupodiscus", species: [
+			{name: "radiatus"}]
+		},
+		{name: "Hydrosera", species: [
+			{name: "whampoensis"}]
+		},
+		{name: "Lindavia", species: [
+			{name: "delicatula"},
+			{name: "comensis"},
+			{name: "michiganiana"},
+			{name: "ocellata"},
+			{name: "praetermissa"},
+			{name: "rossli"},
+			{name: "radiosa"},
+			{name: "antiqua"},
+			{name: "affinis"},
+			{name: "intermedia"},
+			{name: "bodanica"},
+			{name: "eriensis"}]
+		},
+		{name: "Melosira", species: [
+			{name: "dickiei"},
+			{name: "varians"},
+			{name: "normannii"},
+			{name: "undulata"}]
+		},
+		{name: "Orthoseira", species: [
+			{name: "roeseana"}]
+		},
+		{name: "Pleurosira", species: [
+			{name: "laevis"}]
+		},
 		{name: "Pilocaenicus"},
 		{name: "Puncticulata"},
 		{name: "Skeletonema"},
-		{name: "Spicaticribra"},
-		{name: "Stephonocyclus"},
-		{name: "Stephanodiscus"},
+			{name: "Spicaticribra", species: [
+				{name: "kingstonii"}]
+			},
+		{name: "Stephonocyclus"},  
+		{name: "Stephanodiscus", species: [
+			{name: "parvus"},
+			{name: "minutulus"},
+			{name: "binderanus"},
+			{name: "hantzchii f. tenuis"},
+			{name: "hantzchii"},
+			{name: "oregonicus"},
+			{name: "alpinus"},
+			{name: "yellowstonensis"},
+			{name: "niagarae"},
+			{name: "reimeri"}]
+		},
 		{name: "Strelnikoviella"},
-		{name: "Terpsinoë"},
-		{name: "Thalassiosira"},
+		{name: "Terpsinoë", species: [
+			{name: "musica"}]},
+		{name: "Thalassiosira", species: [
+			{name: "weissflogii"},
+			{name: "baltica"},
+			{name: "lacustris"}]
+		},
 		{name: "Urosolenia"},]
 	},
 	{name: "Araphid", generas: [
