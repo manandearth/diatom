@@ -91,7 +91,7 @@ class Rectangles extends React.Component {
                        y={ 100 }
                        width={ 40 }
                        height={ 40 }
-                       transform={"rotate(" +   (i - 8) * 150 / len   + ",100,100), translate(410,0)" }
+                       transform={"rotate(" +   (i) * 6 + ",100,100), translate(410,0)" }
                        onClick={this.handleChangeSpecies}
                        fill={species.name === this.props.selectedSpecies ? "#228911" : "#799C88"}/>
                       <g>
@@ -99,7 +99,7 @@ class Rectangles extends React.Component {
                           className={ species.name === this.props.selectedSpecies ? "heavy" : "small" }
                           x={ 150 }
                           y={ 120 } 
-                        transform={"rotate(" +   (i - 8) * 150 / len   + ",100,100), translate(410,0)" }>
+                        transform={"rotate(" +   (i) * 6   + ",100,100), translate(410,0)" }>
                           { species.name }
                         </text></g>
                    </svg>)
