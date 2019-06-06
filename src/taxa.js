@@ -1,13 +1,48 @@
-
 const Taxa = [
 	{name: "Centric", generas: [
-		{name: "Acanthoceras"},
-		{name: "Actinocyclus"},
-		{name: "Aulacoseira"},
+		{name: "Acanthoceras", species: [
+			{name: "zachariasii"}]
+		},
+		{name: "Actinocyclus", species: [
+			{name: "normanii"}]
+		},
+		{name: "Aulacoseira", species: [
+			{name: "granulata var. angustissima"},
+			{name: "herzogii"},
+			{name: "pusilla"},
+			{name: "tenella"},
+			{name: "humilis"},
+			{name: "nivaloides"},
+			{name: "nygaardii"},
+			{name: "ambigua"},
+			{name: "crassipuctata"},
+			{name: "subarctica"},
+			{name: "alpigena"},
+			{name: "canadensis"},
+			{name: "valida"},
+			{name: "granulata"},
+			{name: "nivalis"},
+			{name: "islandica"},
+			{name: "lirata"},
+			{name: "italica"}, 
+			{name: "muzzanensis"},
+		]},
 		{name: "Brevisira"},
-		{name: "Chaetoceros"},
-		{name: "Cyclostephanos"},
-		{name: "Cyclotella"},
+		{name: "Chaetoceros", species: [
+			{name: "muelleri"}]
+		},
+		{name: "Cyclostephanos", species: [
+			{name: "nvisitatus"},
+			{name: "tholiformis"},
+			{name: "dubius"}]
+		},
+		{name: "Cyclotella", species: [
+			{name: "atomus"},
+			{name: "meneghiniana"},
+			{name: "distinguenda"},
+			{name: "gamma"},
+			{name: "quillensis"}]
+		},
 		{name: "Discostella"},
 		{name: "Ellerbeckia"},
 		{name: "Eupodiscus"},

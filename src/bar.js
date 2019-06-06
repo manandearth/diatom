@@ -11,7 +11,7 @@ class Rectangles extends React.Component {
         this.handleChangeGenera = this.handleChangeGenera.bind(this)
     }
   
-    drawRectangle(props, i) {
+    drawCategoryRectangle(props, i) {
 
         const data = this.props.data
         return (
@@ -80,6 +80,21 @@ class Rectangles extends React.Component {
     }
 
 
+// TODO continue here ->
+    drawSpeciesRectangle(props) {
+         {
+            return(<svg>
+                     <rect
+                     id={ props.name }
+                     className="genera"
+                      x={ 60 }
+                      y={ 400 }
+                      width={ 40 }
+                       height={ 40 } />
+                     
+                   </svg>)
+        }
+    }
     
     handleChangeCategory(e){
         this.props.onChangeCategory(e.target.id);
@@ -100,12 +115,11 @@ class Rectangles extends React.Component {
         
         return<div>
                 <svg width={w} height={h}>
-            {this.props.data.map((category, i) =>this.drawRectangle(category, i))}
+            {this.props.data.map((category, i) =>this.drawCategoryRectangle(category, i))}
             <g transform="translate(120,150)">
                {selected ? selected.map((category) => category.generas.map((genera, i) => this.drawGeneraRectangle(genera, i, generaOfSelected[0].length))) : null}
-                </g>
+            </g>
           </svg>
-          
          </div>
     }    
 }
