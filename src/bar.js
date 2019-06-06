@@ -81,9 +81,9 @@ class Rectangles extends React.Component {
 
 
 // TODO continue here ->
-    drawSpeciesRectangle(props) {
+    drawSpeciesRectangle(props, i , len) {
          {
-            return(<svg>
+             return(<svg viewBox="100 -350 200 1000" id={ "species" + props.name }>
                      <rect
                      id={ props.name }
                      className="genera"
@@ -91,7 +91,10 @@ class Rectangles extends React.Component {
                       y={ 400 }
                       width={ 40 }
                        height={ 40 } />
-                     
+                      <g>
+                        <text>
+                          { props.name }
+                        </text></g>
                    </svg>)
         }
     }
@@ -108,8 +111,10 @@ class Rectangles extends React.Component {
     render(){
          const w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
         const h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-        var selected = this.props.data.filter((c) => c.name == this.props.selectedCategory)
-        var generaOfSelected = selected ? selected.map((c, i) => c.generas) : null
+        var selectedCategory = this.props.data.filter((c) => c.name == this.props.selectedCategory)
+        var generaOfSelected = selectedCategory ? selectedCategory.map((c, i) => c.generas) : null
+        var selectedGenera = this.props.selectedCategory != "" ? selectedCategory[0].generas.filter((g) => g.name == this.props.selectedGenera) : null
+        var speciesOfSelected = selectedGenera ? selectedGenera.map((g, i) => g.species) : null
        
         
         
@@ -117,9 +122,15 @@ class Rectangles extends React.Component {
                 <svg width={w} height={h}>
             {this.props.data.map((category, i) =>this.drawCategoryRectangle(category, i))}
             <g transform="translate(120,150)">
-               {selected ? selected.map((category) => category.generas.map((genera, i) => this.drawGeneraRectangle(genera, i, generaOfSelected[0].length))) : null}
+               {selectedCategory ? selectedCategory.map((category) => category.generas.map((genera, i) => this.drawGeneraRectangle(genera, i, generaOfSelected[0].length))) : null}
             </g>
-          </svg>
+                  <g>
+                    {/* nested conditionals to assure there is a `selected genera` and also a `species` keyword */}
+                    {selectedGenera ? selectedGenera.map((genera) =>
+                        genera.species ? genera.species.map((species, i) => this.drawSpeciesRectangle(species, i, speciesOfSelected[0].length)) : null ) : null}
+                  </g>
+                </svg>
+                <h2>{ this.props.selectedGenera != "" ? speciesOfSelected.toString() : null}</h2>
          </div>
     }    
 }
