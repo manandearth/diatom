@@ -9,6 +9,7 @@ class Rectangles extends React.Component {
         super(props)
         this.handleChangeCategory = this.handleChangeCategory.bind(this)
         this.handleChangeGenera = this.handleChangeGenera.bind(this)
+        this.handleChangeSpecies = this.handleChangeSpecies.bind(this)
     }
   
     drawCategoryRectangle(props, i) {
@@ -85,14 +86,17 @@ class Rectangles extends React.Component {
              return(<svg viewBox="100 -350 200 1000" id={ "species" + species.name }>
                      <rect
                        id={ species.name }
-                       className="genera"
+                       className="species"
                        x={ 100 }
                        y={ 100 }
                        width={ 40 }
                        height={ 40 }
-                       transform={"rotate(" +   (i - 8) * 150 / len   + ",100,100), translate(410,0)" }/>
+                       transform={"rotate(" +   (i - 8) * 150 / len   + ",100,100), translate(410,0)" }
+                       onClick={this.handleChangeSpecies}
+                       fill={species.name === this.props.selectedSpecies ? "#228911" : "#799C88"}/>
                       <g>
                         <text
+                          className={ species.name === this.props.selectedSpecies ? "heavy" : "small" }
                           x={ 150 }
                           y={ 120 } 
                         transform={"rotate(" +   (i - 8) * 150 / len   + ",100,100), translate(410,0)" }>
@@ -110,6 +114,9 @@ class Rectangles extends React.Component {
         this.props.onChangeGenera(e.target.id);
     }
 
+    handleChangeSpecies(e){
+        this.props.onChangeSpecies(e.target.id);
+    }
     
     render(){
          const w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
@@ -133,7 +140,7 @@ class Rectangles extends React.Component {
                         genera.species ? genera.species.map((species, i) => this.drawSpeciesRectangle(species, i, speciesOfSelected[0].length)) : null ) : null}
                   </g>
                 </svg>
-                <h2>{ this.props.selectedGenera != "" ? speciesOfSelected.toString() : null}</h2>
+                <h2>{ this.props.selectedSpecies }</h2>
          </div>
     }    
 }

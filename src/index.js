@@ -78,8 +78,8 @@ class App extends React.Component {
                 onChangeCategory={this.handleChangeCategory}
                 selectedGenera={this.state.selectedGenera}
                 onChangeGenera={this.handleChangeGenera}
-                selectedSpecies={this.selectedSpecies}
-                oncChangeSpecies={this.handleChangeSpecies}/>
+                selectedSpecies={this.state.selectedSpecies}
+                onChangeSpecies={this.handleChangeSpecies}/>
       </div>
     );
   }
