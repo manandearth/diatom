@@ -80,20 +80,23 @@ class Rectangles extends React.Component {
     }
 
 
-// TODO continue here ->
-    drawSpeciesRectangle(props, i , len) {
+    drawSpeciesRectangle(species, i , len) {
          {
-             return(<svg viewBox="100 -350 200 1000" id={ "species" + props.name }>
+             return(<svg viewBox="100 -350 200 1000" id={ "species" + species.name }>
                      <rect
-                     id={ props.name }
-                     className="genera"
-                      x={ 60 }
-                      y={ 400 }
-                      width={ 40 }
-                       height={ 40 } />
+                       id={ species.name }
+                       className="genera"
+                       x={ 100 }
+                       y={ 100 }
+                       width={ 40 }
+                       height={ 40 }
+                       transform={"rotate(" +   (i - 8) * 150 / len   + ",100,100), translate(410,0)" }/>
                       <g>
-                        <text>
-                          { props.name }
+                        <text
+                          x={ 150 }
+                          y={ 120 } 
+                        transform={"rotate(" +   (i - 8) * 150 / len   + ",100,100), translate(410,0)" }>
+                          { species.name }
                         </text></g>
                    </svg>)
         }

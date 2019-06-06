@@ -44,8 +44,8 @@ class App extends React.Component {
             data: Taxa,
             width: 700,
             height: 500,
-            selectedCategory: "",
-            selectedGenera: ""
+            selectedCategory: "Centric",
+            selectedGenera: "Aulacoseira"
             // id: root
         }
         this.handleChangeCategory = this.handleChangeCategory.bind(this)
