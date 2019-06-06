@@ -44,22 +44,26 @@ class App extends React.Component {
             data: Taxa,
             width: 700,
             height: 500,
-            selectedCategory: "Centric",
-            selectedGenera: "Aulacoseira"
+            selectedCategory: "",
+            selectedGenera: "",
+            selectedSpecies: ""
             // id: root
         }
         this.handleChangeCategory = this.handleChangeCategory.bind(this)
         this.handleChangeGenera = this.handleChangeGenera.bind(this)
+        this.handleChangeSpecies = this.handleChangeSpecies.bind(this)
 }
 
     handleChangeCategory(newCategory){
         this.setState({selectedCategory: newCategory})
     }
-
     handleChangeGenera(newGenera){
         this.setState({selectedGenera: newGenera})
     }
-    
+    handleChangeSpecies(newSpecies){
+        this.setState({selectedSpecies: newSpecies})
+    }
+        
     render() {
         return (
             <div className="App">
@@ -73,7 +77,9 @@ class App extends React.Component {
                 selectedCategory={this.state.selectedCategory}
                 onChangeCategory={this.handleChangeCategory}
                 selectedGenera={this.state.selectedGenera}
-                onChangeGenera={this.handleChangeGenera}/>
+                onChangeGenera={this.handleChangeGenera}
+                selectedSpecies={this.selectedSpecies}
+                oncChangeSpecies={this.handleChangeSpecies}/>
       </div>
     );
   }
