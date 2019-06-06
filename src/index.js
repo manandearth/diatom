@@ -44,8 +44,8 @@ class App extends React.Component {
             data: Taxa,
             width: 700,
             height: 500,
-            selectedCategory: "Centric",
-            selectedGenera: "Aulacoseira",
+            selectedCategory: "",
+            selectedGenera: "",
             selectedSpecies: ""
             // id: root
         }

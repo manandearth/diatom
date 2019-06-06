@@ -82,6 +82,7 @@ class Rectangles extends React.Component {
 
 
     drawSpeciesRectangle(species, i , len) {
+        var transform  = "rotate(" +   (i) * 6   + ",100,100), translate(410,0)"
          {
              return(<svg viewBox="100 -350 200 1000" id={ "species" + species.name }>
                      <rect
@@ -91,7 +92,7 @@ class Rectangles extends React.Component {
                        y={ 100 }
                        width={ 40 }
                        height={ 40 }
-                       transform={"rotate(" +   (i) * 6 + ",100,100), translate(410,0)" }
+                       transform={ transform }
                        onClick={this.handleChangeSpecies}
                        fill={species.name === this.props.selectedSpecies ? "#228911" : "#799C88"}/>
                       <g>
@@ -99,7 +100,7 @@ class Rectangles extends React.Component {
                           className={ species.name === this.props.selectedSpecies ? "heavy" : "small" }
                           x={ 150 }
                           y={ 120 } 
-                        transform={"rotate(" +   (i) * 6   + ",100,100), translate(410,0)" }>
+                        transform={ transform }>
                           { species.name }
                         </text></g>
                    </svg>)
@@ -140,7 +141,6 @@ class Rectangles extends React.Component {
                         genera.species ? genera.species.map((species, i) => this.drawSpeciesRectangle(species, i, speciesOfSelected[0].length)) : null ) : null}
                   </g>
                 </svg>
-                <h2>{ this.props.selectedSpecies }</h2>
          </div>
     }    
 }

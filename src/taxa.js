@@ -112,38 +112,191 @@ const Taxa = [
 		{name: "Urosolenia"},]
 	},
 	{name: "Araphid", generas: [
-		{name: "Asterionella"},
-		{name: "Ctenophora"},
-		{name: "Diatoma"},
-		{name: "Diprora"},
-		{name: "Distrionella"},
-		{name: "Fragilaria"},
-		{name: "Fragilariforma"},
-		{name: "Hannaea"},
-		{name: "Meridion"},
-		{name: "Odontidium"},
-		{name: "Oxyneis"},
-		{name: "Pseudostaurosira"},
+		{name: "Asterionella", species: [
+			{name: "formosa"},
+			{name: "ralfsii var. americana"}]
+		},
+		{name: "Ctenophora", species: [
+			{name: "pulchella"}]
+		},
+		{name: "Diatoma", species: [
+			{name: "moniliformis"},
+			{name: "vulgaris"},
+			{name: "tenuis"},
+			{name: "ehrenbergii"}]
+		},
+		{name: "Diprora", species:[
+			{name: "haenaensis"}]
+		},
+		{name: "Distrionella", species:[
+			{name: "incognita"}]
+		},
+		{name: "Fragilaria", species: [
+			{name: "pennsylvanica"},
+			{name: "recapitellata"},
+			{name: "vaucheriae"},
+			{name: "socia"},
+			{name: "mesolepta"},
+			{name: "amphicephaloides"},
+			{name: "crotonensis"},
+			{name: "tenera"},
+			{name: "synegrotesca"}]
+		},
+		{name: "Fragilariforma", species: [
+			{name: "horstii"},
+			{name: "marylandica"},
+			{name: "polygonata"},
+			{name: "constricta"},
+			{name: "bicapitata"},
+			{name: "nitzschioides"},
+			{name: "virescens"},
+			{name: "acidobiontica"}]
+		},
+		{name: "Hannaea", species: [
+			{name: "arcus"},
+			{name: "superiorensis"}]
+		},
+		{name: "Meridion", species: [
+			{name: "lineare"},
+			{name: "anceps"},
+			{name: "circulare var. constrictum"},
+			{name: "circulare"},
+			{name: "alansmithii"}]
+		},
+		{name: "Odontidium", species: [
+			{name: "mesodon"},
+			{name: "hyemale"}]
+		},
+		{name: "Oxyneis", species: [
+			{name: "binalis var. elliptica"},
+			{name: "binalis"}]
+		},
+		{name: "Pseudostaurosira", species: [
+			{name: "trainorii"},
+			{name: "elliptica"},
+			{name: "neoelliptica"},
+			{name: "pseudoconstruens"},
+			{name: "robusta"},
+			{name: "parasitica"},
+			{name: "brevistriata"},
+			{name: "americana"}]
+		},
 		{name: "Pseorostaurosiropsis"},
-		{name: "Punctastriata"},
-		{name: "Stauroforma"},
-		{name: "Staurosira"},
-		{name: "Staurosirella"},
-		{name: "Synedra"},
-		{name: "Tabellaria"},
-		{name: "Tabularia"},
-		{name: "Tetracyclus"},
+		{name: "Punctastriata", species: [
+			{name: "mimetica"}]
+		},
+		{name: "Stauroforma", species: [
+			{name: "mimetica"}]
+		},
+		{name: "Staurosira", species: [
+			{name: "construens"},
+			{name: "construens var. binodis"},
+			{name: "stevensonii"},
+			{name: "construens var. venter"}]
+		},
+		{name: "Staurosirella", species: [
+			{name: "pinnata"},
+			{name: "berolinensis"},
+			{name: "martyl"},
+			{name: "leptostauron"},
+			{name: "leptostauron var. dubia"},
+			{name: "rhombodies"}]
+		},
+		{name: "Synedra", species: [
+			{name: "mazamaensis"},
+			{name: "famelica"},
+			{name: "cyclopum"},
+			{name: "goulardi"}]
+		},
+		{name: "Tabellaria", species: [
+			{name: "fenestrata"},
+			{name: "flocculosa"}]
+			},
+		{name: "Tabularia", species: [
+			{name: "fasciculata"}]
+			},
+		{name: "Tetracyclus", species: [
+			{name: "rupestris"},
+			{name: "hinziae"},
+			{name: "glans"}]
+			},
 		{name: "Tibetiella"},
-		{name: "Ulnaria"}]
+		{name: "Ulnaria", species: [
+			{name: "goulardi"},
+			{name: "contracta"},
+			{name: "acus"},
+			{name: "delicatissima"}]
+		}]
 	},
 	
 	{name: "Eunotioid", generas: [
-		{name: "Actinella"},
+		{name: "Actinella", species: [
+			{name: "punctata"}]
+		},
 		{name: "Amphicampa"},
 		{name: "Amphorotia"},
-		{name: "Eunotia"},
-		{name: "Peronia"},
-		{name: "Semiorbis"}]
+		{name: "Eunotia", species: [
+			{name: "microcephala"},
+			{name: "enischna"},
+			{name: "orthohedra"},
+			{name: "perpusilla"},
+			{name: "cataractarum"},
+			{name: "exigua"},
+			{name: "trinacria"},
+			{name: "rhomboidea"},
+			{name: "rushforthii"},
+			{name: "horstii"},
+			{name: "subherkiniensis"},
+			{name: "tenella"},
+			{name: "bidentula"},
+			{name: "canicula"},
+			{name: "papilioforma"},
+			{name: "gibbosa"},
+			{name: "bactriana"},
+			{name: "sudetica"},
+			{name: "boomsma"},
+			{name: "nymanniana"},
+			{name: "paludosa"},
+			{name: "hexaglyphis"},
+			{name: "billi"},
+			{name: "incisa"},
+			{name: "tetraodon"},
+			{name: "mucophila"},
+			{name: "eruca"},
+			{name: "kociolekii"},
+			{name: "novaengliae"},
+			{name: "obliquestriata"},
+			{name: "faba"},
+			{name: "areniverma"},
+			{name: "montuosa"},
+			{name: "richbuttensis"},
+			{name: "bidens"},
+			{name: "zasuminesis"},
+			{name: "mydohaimasiae"},
+			{name: "diadema"},
+			{name: "sarraceniae"},
+			{name: "chaeliereimeri"},
+			{name: "triodon"},
+			{name: "pectinalis"},
+			{name: "macroglossa"},
+			{name: "panda"},
+			{name: "lewisii"},
+			{name: "bilunaris"},
+			{name: "superbidens"},
+			{name: "serra"},
+			{name: "formica"},
+			{name: "naegelii"},
+			{name: "metamonodon"},
+			{name: "spatulata"},
+			{name: "tauntoniensis"}]
+		},
+		{name: "Peronia", species:[
+			{name: "fibula"}]
+		},
+		{name: "Semiorbis", species: [
+			{name: "catillifera"},
+			{name: "rotundus"}]
+		}]
 	},
 	
 	{name: "Symmetric Biraphid", generas: [
