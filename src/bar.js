@@ -1,34 +1,32 @@
-import React, {Component} from 'react';
+import React from 'react';
 import * as d3 from "d3";
-import Taxa from './taxa.js'
 
 
 class Rectangles extends React.Component {
     
     constructor (props){
-        super(props)
-        this.handleChangeCategory = this.handleChangeCategory.bind(this)
-        this.handleChangeGenera = this.handleChangeGenera.bind(this)
-        this.handleChangeSpecies = this.handleChangeSpecies.bind(this)
+        super(props);
+        this.handleChangeCategory = this.handleChangeCategory.bind(this);
+        this.handleChangeGenera = this.handleChangeGenera.bind(this);
+        this.handleChangeSpecies = this.handleChangeSpecies.bind(this);
     }
   
     drawCategoryRectangle(props, i) {
 
-        const data = this.props.data
         return (
                   
-            <svg viewBox="100 -350 200 1000">
-                   <rect
-                     id={this.props.data[i].name}
-                     className="category"
-                     x={50}
-                     y={225}
-                     width={100}
-                     height={100}
-                     transform={"rotate(" + i * -360 / this.props.data.length + ",100 ,100)"}
-                     onClick={this.handleChangeCategory}
-                     fill={this.props.data[i].name === this.props.selectedCategory ? "olive" : "yellowgreen"}
-                   />
+            <svg viewBox="100 -350 200 1000" key={'rect' + this.props.data[i].name}  >
+              <rect
+                id={this.props.data[i].name}
+                className="category"
+                x={50}
+                y={225}
+                width={100}
+                height={100}
+                transform={"rotate(" + i * -360 / this.props.data.length + ",100 ,100)"}
+                onClick={this.handleChangeCategory}
+                fill={this.props.data[i].name === this.props.selectedCategory ? "olive" : "yellowgreen"}
+              />
               
               <g transform={"rotate(" + i * -360 / this.props.data.length + ",0 ,-100), translate(0,120)"}>
                 <text
@@ -40,41 +38,29 @@ class Rectangles extends React.Component {
     }
 
     drawGeneraRectangle(props, i, len) {
-        const data = this.props.data
-        var sizeLinear = d3.scaleLinear()
-            .domain([2, 59])  
-            .range([80, 0]);
-        var yOffsetLinear = d3.scaleLinear()
-            .domain([59, 2])
-            .range([200, 10]);
-        var xOffsetLinear = d3.scaleLinear()
-            .domain([59, 2])
-            .range([500, 350]);
-        let transformation = "rotate("  + 360 / len * i + ",100,100)"
-        let xOffset = xOffsetLinear(len)
-        let yOffset = yOffsetLinear(len)
-        return (<svg viewBox="100 -350 200 1000" x={ -120 } y={ -150 }  id={ "svg-" + props.name }>
-                   ><rect
+       
+        return (<svg viewBox="100 -350 200 1000" x={ -120 } y={ -150 }  id={ "svg-" + props.name } key={'genera-rect-' + props.name}  >
+                  <rect
                      id={ props.name }
                      className="genera"
                       x={ 60 }
                       y={ 400 }
-                      width={ this.props.selectedCategory == "Symmetric Biraphid" ? 20 : 60 }
-                      height={ this.props.selectedCategory == "Symmetric Biraphid" ? 20 : 60 }
-                      transform={ this.props.selectedCategory == "Symmetric Biraphid" ?
+            width={ this.props.selectedCategory === "Symmetric Biraphid" ? 20 : 60 }
+            height={ this.props.selectedCategory === "Symmetric Biraphid" ? 20 : 60 }
+            transform={ this.props.selectedCategory === "Symmetric Biraphid" ?
                           "rotate(" + i * -360 / len +  ",100,100)" :
                           "rotate(" + i * -360 / len +  ",100,100)"}
                      onClick={ this.handleChangeGenera }
                      fill={ props.name === this.props.selectedGenera ? "#668613" : "#9CB071" }
                     />
-                  <g transform={ this.props.selectedCategory == "Symmetric Biraphid" ?
+            <g transform={ this.props.selectedCategory === "Symmetric Biraphid" ?
                       "rotate("  + i * -360 / len + ",0,0),translate(0,300)" :
                       "rotate("  + i * -360 / len + ",0,-280),translate(0,50)" }>
                   <text
                     className={ props.name === this.props.selectedGenera ? "heavy" : "small" }
                     x={ 50 }
-                    y={ this.props.selectedCategory == "Symmetric Biraphid" ? 110 : 360 }
-                    transform={ this.props.selectedCategory == "Symmetric Biraphid" ?
+            y={ this.props.selectedCategory === "Symmetric Biraphid" ? 110 : 360 }
+            transform={ this.props.selectedCategory === "Symmetric Biraphid" ?
                         "rotate("  + i * 360 / len + ",-30,0)" :
                         "rotate("  + i * 360 / len + ",0,0)" }>{props.name}</text></g>
                 </svg>);
@@ -82,10 +68,10 @@ class Rectangles extends React.Component {
 
 
     drawSpeciesRectangle(species, i , len) {
-        var transform  = "rotate(" +   (i) * 6   + ",100,100), translate(410,0)"
-         {
-             return(<svg viewBox="100 -350 200 1000" id={ "species" + species.name }>
-                     <rect
+        var transform  = "rotate(" +   (i) * 6   + ",100,100), translate(410,0)";
+         
+             return(<svg viewBox="100 -350 200 1000" id={ "species" + species.name }  key={'species-rect-' + species.name}  >
+                      <rect
                        id={ species.name }
                        className="species"
                        x={ 100 }
@@ -103,8 +89,8 @@ class Rectangles extends React.Component {
                         transform={ transform }>
                           { species.name }
                         </text></g>
-                   </svg>)
-        }
+                 </svg>);
+        
     }
     
     handleChangeCategory(e){
@@ -120,19 +106,20 @@ class Rectangles extends React.Component {
     }
     
     render(){
-         const w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+        const w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
         const h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-        var selectedCategory = this.props.data.filter((c) => c.name == this.props.selectedCategory)
-        var generaOfSelected = selectedCategory ? selectedCategory.map((c, i) => c.generas) : null
-        var selectedGenera = this.props.selectedCategory != "" ? selectedCategory[0].generas.filter((g) => g.name == this.props.selectedGenera) : null
-        var speciesOfSelected = selectedGenera ? selectedGenera.map((g, i) => g.species) : null
+        const selectedCategory = this.props.data.filter((c) => c.name === this.props.selectedCategory);
+        const generaOfSelected = selectedCategory ? selectedCategory.map((c, i) => c.generas) : null;
+        const selectedGenera = this.props.selectedCategory !== "" ? selectedCategory[0].generas.filter((g) => g.name === this.props.selectedGenera) : null;
+        const speciesOfSelected = selectedGenera ? selectedGenera.map((g, i) => g.species) : null;
        
         
         
-        return<div>
+        return(<div>
                 <svg width={w} height={h}>
-            {this.props.data.map((category, i) =>this.drawCategoryRectangle(category, i))}
-            <g transform="translate(120,150)">
+                  {this.props.data.map((category, i) =>this.drawCategoryRectangle(category, i))}
+                  <g key={'g-' + selectedCategory } 
+                    transform="translate(120,150)">
                {selectedCategory ? selectedCategory.map((category) => category.generas.map((genera, i) => this.drawGeneraRectangle(genera, i, generaOfSelected[0].length))) : null}
             </g>
                   <g>
@@ -141,8 +128,8 @@ class Rectangles extends React.Component {
                         genera.species ? genera.species.map((species, i) => this.drawSpeciesRectangle(species, i, speciesOfSelected[0].length)) : null ) : null}
                   </g>
                 </svg>
-         </div>
-    }    
+              </div>
+        );}    
 }
 
 class BarChart extends React.Component {
@@ -152,7 +139,6 @@ class BarChart extends React.Component {
     }
     
     drawChart(props) {
-        const data = this.props.data;
         const w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
         const h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
    
@@ -171,7 +157,7 @@ class BarChart extends React.Component {
             .attr("width", 100)
             .attr("transform", (d, i) => "rotate(" + i *  360 / 9  + ",360,360)")
             .attr("height", 100)
-            .attr("fill", this.props.color)
+            .attr("fill", this.props.color);
 
         svg.selectAll("text")
             .data(this.props.data.map((category) => category.name))
@@ -180,11 +166,11 @@ class BarChart extends React.Component {
             .text((d) => d)
             .attr("x", 100)
             .attr("y", 310)
-            .attr("transform", (d, i) => "rotate(" + i * 360 / 9 + ",360,360)")
+            .attr("transform", (d, i) => "rotate(" + i * 360 / 9 + ",360,360)");
     }
 
     render(){
-        return <div id={"#" + this.props.id}></div>
+        return (<div id={"#" + this.props.id}></div>);
     }
 }
 
