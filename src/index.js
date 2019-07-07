@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { Rectangles } from './bar';
+import { Selection } from './selection';
 import Taxa from './taxa';
 
 class App extends React.Component {
@@ -22,10 +23,18 @@ class App extends React.Component {
 }
 
     handleChangeCategory(newCategory){
-        this.setState({selectedCategory: newCategory});
+        this.setState({
+            selectedCategory: newCategory,
+            selectedGenera:'',
+            selectedSpecies:''
+        }
+       );
     }
     handleChangeGenera(newGenera){
-        this.setState({selectedGenera: newGenera});
+        this.setState({
+            selectedGenera: newGenera,
+            selectedSpecies: ''
+        });
     }
     handleChangeSpecies(newSpecies){
         this.setState({selectedSpecies: newSpecies});
@@ -33,21 +42,35 @@ class App extends React.Component {
         
     render() {
         return (
-            <div className="App">
+            <div className="app">
               <Navbar />
               <h1>Diatom</h1>
               <h2>A morphology designed in calcium and silica</h2>
-              {/* <VisExampleApp /> */}
-              <Rectangles
-            data={this.state.data}
-            color={this.state.color}
-            selectedCategory={this.state.selectedCategory}
-            onChangeCategory={this.handleChangeCategory}
-            selectedGenera={this.state.selectedGenera}
-            onChangeGenera={this.handleChangeGenera}
-            selectedSpecies={this.state.selectedSpecies}
-            onChangeSpecies={this.handleChangeSpecies}/>
-      </div>
+				{/* <VisExampleApp /> */}
+			  <div className='container'>
+				<div className='rectangles'>
+				  <Rectangles
+                    data={this.state.data}
+                    color={this.state.color}
+                    selectedCategory={this.state.selectedCategory}
+                    onChangeCategory={this.handleChangeCategory}
+                    selectedGenera={this.state.selectedGenera}
+                    onChangeGenera={this.handleChangeGenera}
+                    selectedSpecies={this.state.selectedSpecies}
+                    onChangeSpecies={this.handleChangeSpecies}/>
+                </div>
+                <div className='selection'>
+                  <Selection
+			        selectedCategory={this.state.selectedCategory}
+			        onChangeCategory={this.handleChangeCategory}
+                    selectedGenera={this.state.selectedGenera}
+                    onChangeGenera={this.handleChangeGenera}
+                    selectedSpecies={this.state.selectedSpecies}
+                    onChangeSpecies={this.handleChangeSpecies}
+			      />
+                </div>
+              </div>
+            </div>
     );
   }
 }

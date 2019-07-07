@@ -12,10 +12,16 @@ code {
     monospace;
 }
 
+.app {
+    /* width: 100%; */
+    
+}
+
 /* Add a black background color to the top navigation */
 .topnav {
   background-color: lightslategrey;
   overflow: hidden;
+  width: 100%;
 }
 
 /* Style the links inside the navigation bar */
@@ -92,3 +98,32 @@ code {
 svg {
     overflow: visible;
     }
+
+.container {
+    display: flex;
+    flex-direction: row;
+    /* margin: auto; */
+    flex-wrap: wrap;
+}
+
+.rectangles {
+    /* width: 100%; */
+    flex-shrink: 1;
+    margin: auto;
+}
+
+.selection {
+    position: absolute;
+    top: 2%;
+    left: 60%;
+    line-height: 0.5rem;
+    flex-shrink: 1;
+    margin: auto;
+}
+
+.selected-class {
+    text-align: left;
+    padding: 2rem;
+    font-size: 2rem;
+}
+
